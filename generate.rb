@@ -185,6 +185,7 @@ sections = routes.map do |from_label, to_label, from_id, to_id|
   render_section(from_label, to_label, trips)
 end
 
+today        = Date.today
 generated_at = "#{JOURS[today.wday]} #{today.day} #{MOIS[today.month - 1]} #{today.year}"
 
 html = <<~HTML
