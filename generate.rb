@@ -115,6 +115,15 @@ def fmt_duration(min)
   "#{min / 60}h#{(min % 60).to_s.rjust(2, '0')}"
 end
 
+def dep_class(dt)
+  case dt.hour
+  when  0..6  then 't-nuit'
+  when  7..11 then 't-matin'
+  when 12..16 then 't-apm'
+  else             't-soir'
+  end
+end
+
 def render_rows(trips, today)
   return '<tr><td colspan="4" class="empty">Aucun train direct trouvé.</td></tr>' if trips.empty?
 
@@ -125,7 +134,7 @@ def render_rows(trips, today)
     row_attr = cls.empty? ? '' : " class=\"#{cls.join(' ')}\""
     "<tr#{row_attr}>" \
       "<td>#{fmt_date(r[:dep])}</td>" \
-      "<td class=\"time\">#{r[:dep].strftime('%H:%M')}</td>" \
+      "<td class=\"time #{dep_class(r[:dep])}\">#{r[:dep].strftime('%H:%M')}</td>" \
       "<td class=\"time\">#{r[:arr].strftime('%H:%M')}</td>" \
       "<td class=\"dur\">#{fmt_duration(r[:duration])}</td>" \
     "</tr>"
@@ -264,6 +273,11 @@ html = <<~HTML
 
       td.time { font-variant-numeric: tabular-nums; font-weight: 500; }
       td.dur  { color: #6b7280; font-size: 0.8rem; }
+
+      td.t-nuit  { background: #ede9fe; color: #6d28d9; }
+      td.t-matin { background: #fef9c3; color: #92400e; }
+      td.t-apm   { background: #ffedd5; color: #9a3412; }
+      td.t-soir  { background: #dbeafe; color: #1e40af; }
 
       tr.weekend td { background: #fff9f9; }
       tr.today td   { background: #fffbeb; font-weight: 600; }
