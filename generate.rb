@@ -124,13 +124,12 @@ def dep_class(dt)
   end
 end
 
-def render_rows(trips, today)
+def render_rows(trips)
   return '<tr><td colspan="4" class="empty">Aucun train direct trouvé.</td></tr>' if trips.empty?
 
   trips.map do |r|
     cls = []
     cls << 'week-start' if r[:dep].wday == 1  # lundi → séparateur de semaine
-    cls << 'today'      if r[:dep].to_date == today
     row_attr = cls.empty? ? '' : " class=\"#{cls.join(' ')}\""
     "<tr#{row_attr}>" \
       "<td>#{fmt_date(r[:dep])}</td>" \
@@ -141,9 +140,9 @@ def render_rows(trips, today)
   end.join("\n        ")
 end
 
-def render_section(from_label, to_label, trips, today)
+def render_section(from_label, to_label, trips)
   count = trips.size
-  rows  = render_rows(trips, today)
+  rows  = render_rows(trips)
   <<~HTML
     <section class="card">
       <div class="card-header">
@@ -171,8 +170,6 @@ nantes_id  = resolve_stop('Nantes')
 
 start_dt = DateTime.now
 end_dt   = DateTime.now + 30
-today    = Date.today
-
 warn "Récupération des trains #{start_dt.strftime('%d/%m/%Y')} → #{end_dt.strftime('%d/%m/%Y')}…"
 
 routes = [
@@ -185,7 +182,7 @@ routes = [
 sections = routes.map do |from_label, to_label, from_id, to_id|
   trips = fetch_direct_journeys(from_id, to_id, start_dt, end_dt)
   warn "  #{from_label} → #{to_label} : #{trips.size} train(s)"
-  render_section(from_label, to_label, trips, today)
+  render_section(from_label, to_label, trips)
 end
 
 generated_at = "#{JOURS[today.wday]} #{today.day} #{MOIS[today.month - 1]} #{today.year}"
@@ -280,7 +277,6 @@ html = <<~HTML
       td.t-soir  { background: #dbeafe; color: #1e40af; }
 
       tr.week-start td { border-top: 2px solid #d1d5db; }
-      tr.today td   { background: #fffbeb; font-weight: 600; }
       tbody tr:hover td { background: #f0f4ff; }
 
       td.empty { color: #9ca3af; font-style: italic; padding: 1rem 1.1rem; }
