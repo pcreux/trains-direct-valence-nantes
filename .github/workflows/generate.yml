@@ -1,0 +1,30 @@
+name: Mise à jour des horaires
+
+on:
+  schedule:
+    - cron: '0 4 * * *'   # 4h UTC = 6h Paris (heure d'été)
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Générer index.html
+        run: bundle exec ruby generate.rb
+        env:
+          NAVITIA_TOKEN: ${{ secrets.NAVITIA_TOKEN }}
+
+      - name: Commit et push
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git diff --cached --quiet || git commit -m "Mise à jour des horaires $(date +'%Y-%m-%d')"
+          git push

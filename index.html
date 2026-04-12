@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trains directs — Valence TGV ↔ Angers · Nantes</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      color: #1c1c1e;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #c8102e;
+      color: #fff;
+      padding: 2.25rem 1.5rem 2rem;
+      text-align: center;
+    }
+    header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; }
+    header .subtitle { font-size: 1rem; opacity: 0.85; margin-top: 0.3rem; }
+    header .updated  { font-size: 0.75rem; opacity: 0.6; margin-top: 0.75rem; }
+
+    main {
+      max-width: 860px;
+      margin: 2rem auto;
+      padding: 0 1rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    @media (max-width: 600px) { main { grid-template-columns: 1fr; } }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .card-header {
+      padding: 0.9rem 1.1rem 0.7rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .card-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #c8102e;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .arrow { color: #aaa; font-weight: 400; }
+    .count { font-size: 0.72rem; color: #9ca3af; margin-top: 0.2rem; }
+
+    table { width: 100%; border-collapse: collapse; }
+
+    th {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #9ca3af;
+      padding: 0.55rem 1.1rem;
+      text-align: left;
+      background: #fafafa;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    td {
+      padding: 0.5rem 1.1rem;
+      font-size: 0.85rem;
+      border-bottom: 1px solid #f3f4f6;
+      white-space: nowrap;
+    }
+    tr:last-child td { border-bottom: none; }
+
+    td.time { font-variant-numeric: tabular-nums; font-weight: 500; }
+    td.dur  { color: #6b7280; font-size: 0.8rem; }
+
+    tr.weekend td { background: #fff9f9; }
+    tr.today td   { background: #fffbeb; font-weight: 600; }
+    tbody tr:hover td { background: #f0f4ff; }
+
+    td.empty { color: #9ca3af; font-style: italic; padding: 1rem 1.1rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🚄 Trains directs</h1>
+    <p class="subtitle">Valence TGV ↔ Angers · Nantes</p>
+    <p class="updated">Mis à jour le dimanche 12 avril 2026</p>
+  </header>
+  <main>
+    <section class="card">
+      <div class="card-header">
+        <div class="card-title">Valence TGV <span class="arrow">→</span> Angers Saint-Laud</div>
+        <div class="count">23 trains directs</div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Jour</th><th>Départ</th><th>Arrivée</th><th>Durée</th></tr>
+        </thead>
+        <tbody>
+        <tr class="weekend today"><td>Dim. 12 avr.</td><td class="time">09:44</td><td class="time">14:09</td><td class="dur">4h25</td></tr>
+            <tr class="weekend today"><td>Dim. 12 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr><td>Lun. 13 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr><td>Mar. 14 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr><td>Mer. 15 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr><td>Jeu. 16 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr><td>Ven. 17 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr class="weekend"><td>Sam. 18 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr class="weekend"><td>Dim. 19 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr><td>Lun. 20 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr><td>Mar. 21 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr><td>Mer. 22 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr><td>Jeu. 23 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr><td>Ven. 24 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr class="weekend"><td>Sam. 25 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr class="weekend"><td>Dim. 26 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr><td>Lun. 27 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr><td>Mar. 28 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr><td>Mer. 29 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr><td>Jeu. 30 avr.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+            <tr><td>Ven. 1 mai.</td><td class="time">17:44</td><td class="time">21:59</td><td class="dur">4h15</td></tr>
+            <tr class="weekend"><td>Sam. 2 mai.</td><td class="time">17:44</td><td class="time">21:59</td><td class="dur">4h15</td></tr>
+            <tr class="weekend"><td>Dim. 3 mai.</td><td class="time">17:44</td><td class="time">22:30</td><td class="dur">4h46</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div class="card-title">Valence TGV <span class="arrow">→</span> Nantes</div>
+        <div class="count">23 trains directs</div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Jour</th><th>Départ</th><th>Arrivée</th><th>Durée</th></tr>
+        </thead>
+        <tbody>
+        <tr class="weekend today"><td>Dim. 12 avr.</td><td class="time">09:44</td><td class="time">14:50</td><td class="dur">5h06</td></tr>
+            <tr class="weekend today"><td>Dim. 12 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr><td>Lun. 13 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr><td>Mar. 14 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr><td>Mer. 15 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr><td>Jeu. 16 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr><td>Ven. 17 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr class="weekend"><td>Sam. 18 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr class="weekend"><td>Dim. 19 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr><td>Lun. 20 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr><td>Mar. 21 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr><td>Mer. 22 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr><td>Jeu. 23 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr><td>Ven. 24 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr class="weekend"><td>Sam. 25 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr class="weekend"><td>Dim. 26 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr><td>Lun. 27 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr><td>Mar. 28 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr><td>Mer. 29 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr><td>Jeu. 30 avr.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+            <tr><td>Ven. 1 mai.</td><td class="time">17:44</td><td class="time">22:40</td><td class="dur">4h56</td></tr>
+            <tr class="weekend"><td>Sam. 2 mai.</td><td class="time">17:44</td><td class="time">22:40</td><td class="dur">4h56</td></tr>
+            <tr class="weekend"><td>Dim. 3 mai.</td><td class="time">17:44</td><td class="time">23:11</td><td class="dur">5h27</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div class="card-title">Angers Saint-Laud <span class="arrow">→</span> Valence TGV</div>
+        <div class="count">25 trains directs</div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Jour</th><th>Départ</th><th>Arrivée</th><th>Durée</th></tr>
+        </thead>
+        <tbody>
+        <tr class="weekend today"><td>Dim. 12 avr.</td><td class="time">16:19</td><td class="time">21:02</td><td class="dur">4h43</td></tr>
+            <tr><td>Lun. 13 avr.</td><td class="time">05:29</td><td class="time">10:15</td><td class="dur">4h46</td></tr>
+            <tr><td>Mar. 14 avr.</td><td class="time">05:29</td><td class="time">10:15</td><td class="dur">4h46</td></tr>
+            <tr><td>Mer. 15 avr.</td><td class="time">05:29</td><td class="time">10:15</td><td class="dur">4h46</td></tr>
+            <tr><td>Jeu. 16 avr.</td><td class="time">05:29</td><td class="time">10:15</td><td class="dur">4h46</td></tr>
+            <tr><td>Ven. 17 avr.</td><td class="time">05:29</td><td class="time">10:15</td><td class="dur">4h46</td></tr>
+            <tr><td>Ven. 17 avr.</td><td class="time">13:26</td><td class="time">18:15</td><td class="dur">4h49</td></tr>
+            <tr class="weekend"><td>Sam. 18 avr.</td><td class="time">05:29</td><td class="time">10:15</td><td class="dur">4h46</td></tr>
+            <tr class="weekend"><td>Dim. 19 avr.</td><td class="time">05:29</td><td class="time">10:15</td><td class="dur">4h46</td></tr>
+            <tr><td>Lun. 20 avr.</td><td class="time">05:29</td><td class="time">10:15</td><td class="dur">4h46</td></tr>
+            <tr><td>Mar. 21 avr.</td><td class="time">05:29</td><td class="time">10:15</td><td class="dur">4h46</td></tr>
+            <tr><td>Mer. 22 avr.</td><td class="time">05:29</td><td class="time">10:15</td><td class="dur">4h46</td></tr>
+            <tr><td>Jeu. 23 avr.</td><td class="time">05:29</td><td class="time">10:15</td><td class="dur">4h46</td></tr>
+            <tr><td>Ven. 24 avr.</td><td class="time">05:29</td><td class="time">10:15</td><td class="dur">4h46</td></tr>
+            <tr><td>Ven. 24 avr.</td><td class="time">13:26</td><td class="time">18:15</td><td class="dur">4h49</td></tr>
+            <tr class="weekend"><td>Sam. 25 avr.</td><td class="time">05:29</td><td class="time">10:15</td><td class="dur">4h46</td></tr>
+            <tr class="weekend"><td>Dim. 26 avr.</td><td class="time">05:29</td><td class="time">10:15</td><td class="dur">4h46</td></tr>
+            <tr><td>Lun. 27 avr.</td><td class="time">05:29</td><td class="time">10:15</td><td class="dur">4h46</td></tr>
+            <tr><td>Mar. 28 avr.</td><td class="time">05:29</td><td class="time">10:15</td><td class="dur">4h46</td></tr>
+            <tr><td>Mer. 29 avr.</td><td class="time">05:29</td><td class="time">10:15</td><td class="dur">4h46</td></tr>
+            <tr><td>Jeu. 30 avr.</td><td class="time">05:29</td><td class="time">10:15</td><td class="dur">4h46</td></tr>
+            <tr><td>Jeu. 30 avr.</td><td class="time">13:26</td><td class="time">18:10</td><td class="dur">4h44</td></tr>
+            <tr><td>Ven. 1 mai.</td><td class="time">06:07</td><td class="time">10:15</td><td class="dur">4h08</td></tr>
+            <tr class="weekend"><td>Sam. 2 mai.</td><td class="time">06:07</td><td class="time">10:15</td><td class="dur">4h08</td></tr>
+            <tr class="weekend"><td>Dim. 3 mai.</td><td class="time">06:07</td><td class="time">10:15</td><td class="dur">4h08</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div class="card-title">Nantes <span class="arrow">→</span> Valence TGV</div>
+        <div class="count">25 trains directs</div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Jour</th><th>Départ</th><th>Arrivée</th><th>Durée</th></tr>
+        </thead>
+        <tbody>
+        <tr class="weekend today"><td>Dim. 12 avr.</td><td class="time">15:38</td><td class="time">21:02</td><td class="dur">5h24</td></tr>
+            <tr><td>Lun. 13 avr.</td><td class="time">04:50</td><td class="time">10:15</td><td class="dur">5h25</td></tr>
+            <tr><td>Mar. 14 avr.</td><td class="time">04:46</td><td class="time">10:15</td><td class="dur">5h29</td></tr>
+            <tr><td>Mer. 15 avr.</td><td class="time">04:46</td><td class="time">10:15</td><td class="dur">5h29</td></tr>
+            <tr><td>Jeu. 16 avr.</td><td class="time">04:46</td><td class="time">10:15</td><td class="dur">5h29</td></tr>
+            <tr><td>Ven. 17 avr.</td><td class="time">04:46</td><td class="time">10:15</td><td class="dur">5h29</td></tr>
+            <tr><td>Ven. 17 avr.</td><td class="time">12:44</td><td class="time">18:15</td><td class="dur">5h31</td></tr>
+            <tr class="weekend"><td>Sam. 18 avr.</td><td class="time">04:50</td><td class="time">10:15</td><td class="dur">5h25</td></tr>
+            <tr class="weekend"><td>Dim. 19 avr.</td><td class="time">04:50</td><td class="time">10:15</td><td class="dur">5h25</td></tr>
+            <tr><td>Lun. 20 avr.</td><td class="time">04:50</td><td class="time">10:15</td><td class="dur">5h25</td></tr>
+            <tr><td>Mar. 21 avr.</td><td class="time">04:46</td><td class="time">10:15</td><td class="dur">5h29</td></tr>
+            <tr><td>Mer. 22 avr.</td><td class="time">04:46</td><td class="time">10:15</td><td class="dur">5h29</td></tr>
+            <tr><td>Jeu. 23 avr.</td><td class="time">04:46</td><td class="time">10:15</td><td class="dur">5h29</td></tr>
+            <tr><td>Ven. 24 avr.</td><td class="time">04:46</td><td class="time">10:15</td><td class="dur">5h29</td></tr>
+            <tr><td>Ven. 24 avr.</td><td class="time">12:44</td><td class="time">18:15</td><td class="dur">5h31</td></tr>
+            <tr class="weekend"><td>Sam. 25 avr.</td><td class="time">04:50</td><td class="time">10:15</td><td class="dur">5h25</td></tr>
+            <tr class="weekend"><td>Dim. 26 avr.</td><td class="time">04:50</td><td class="time">10:15</td><td class="dur">5h25</td></tr>
+            <tr><td>Lun. 27 avr.</td><td class="time">04:50</td><td class="time">10:15</td><td class="dur">5h25</td></tr>
+            <tr><td>Mar. 28 avr.</td><td class="time">04:46</td><td class="time">10:15</td><td class="dur">5h29</td></tr>
+            <tr><td>Mer. 29 avr.</td><td class="time">04:46</td><td class="time">10:15</td><td class="dur">5h29</td></tr>
+            <tr><td>Jeu. 30 avr.</td><td class="time">04:46</td><td class="time">10:15</td><td class="dur">5h29</td></tr>
+            <tr><td>Jeu. 30 avr.</td><td class="time">12:44</td><td class="time">18:10</td><td class="dur">5h26</td></tr>
+            <tr><td>Ven. 1 mai.</td><td class="time">05:28</td><td class="time">10:15</td><td class="dur">4h47</td></tr>
+            <tr class="weekend"><td>Sam. 2 mai.</td><td class="time">05:28</td><td class="time">10:15</td><td class="dur">4h47</td></tr>
+            <tr class="weekend"><td>Dim. 3 mai.</td><td class="time">05:28</td><td class="time">10:15</td><td class="dur">4h47</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+</body>
+</html>
