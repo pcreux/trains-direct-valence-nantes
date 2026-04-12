@@ -129,8 +129,8 @@ def render_rows(trips, today)
 
   trips.map do |r|
     cls = []
-    cls << 'weekend' if [0, 6].include?(r[:dep].wday)
-    cls << 'today'   if r[:dep].to_date == today
+    cls << 'week-start' if r[:dep].wday == 1  # lundi → séparateur de semaine
+    cls << 'today'      if r[:dep].to_date == today
     row_attr = cls.empty? ? '' : " class=\"#{cls.join(' ')}\""
     "<tr#{row_attr}>" \
       "<td>#{fmt_date(r[:dep])}</td>" \
@@ -279,7 +279,7 @@ html = <<~HTML
       td.t-apm   { background: #ffedd5; color: #9a3412; }
       td.t-soir  { background: #dbeafe; color: #1e40af; }
 
-      tr.weekend td { background: #fff9f9; }
+      tr.week-start td { border-top: 2px solid #d1d5db; }
       tr.today td   { background: #fffbeb; font-weight: 600; }
       tbody tr:hover td { background: #f0f4ff; }
 
