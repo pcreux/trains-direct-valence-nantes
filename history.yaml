@@ -1,0 +1,471 @@
+---
+generated_at: '2026-04-16'
+routes:
+- from: Valence TGV
+  to: Angers Saint-Laud
+  connections:
+  - date: '2026-04-12'
+    departure: '09:44'
+    arrival: '14:09'
+    duration: 265
+  - date: '2026-04-12'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-04-13'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-04-14'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-04-15'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-04-16'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-04-17'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-04-18'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-04-19'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-04-20'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-04-21'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-04-22'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-04-23'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-04-24'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-04-25'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-04-26'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-04-27'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-04-28'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-04-29'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-04-30'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-05-01'
+    departure: '17:44'
+    arrival: '21:59'
+    duration: 255
+  - date: '2026-05-02'
+    departure: '17:44'
+    arrival: '21:59'
+    duration: 255
+  - date: '2026-05-03'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-05-04'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-05-05'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-05-06'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+  - date: '2026-05-07'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
+- from: Valence TGV
+  to: Nantes
+  connections:
+  - date: '2026-04-12'
+    departure: '09:44'
+    arrival: '14:50'
+    duration: 306
+  - date: '2026-04-12'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-04-13'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-04-14'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-04-15'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-04-16'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-04-17'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-04-18'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-04-19'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-04-20'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-04-21'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-04-22'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-04-23'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-04-24'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-04-25'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-04-26'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-04-27'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-04-28'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-04-29'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-04-30'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-05-01'
+    departure: '17:44'
+    arrival: '22:40'
+    duration: 296
+  - date: '2026-05-02'
+    departure: '17:44'
+    arrival: '22:40'
+    duration: 296
+  - date: '2026-05-03'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-05-04'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-05-05'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-05-06'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-05-07'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+- from: Angers Saint-Laud
+  to: Valence TGV
+  connections:
+  - date: '2026-04-12'
+    departure: '16:19'
+    arrival: '21:02'
+    duration: 283
+  - date: '2026-04-13'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-04-14'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-04-15'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-04-16'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-04-17'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-04-17'
+    departure: '13:26'
+    arrival: '18:15'
+    duration: 289
+  - date: '2026-04-18'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-04-19'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-04-20'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-04-21'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-04-22'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-04-23'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-04-24'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-04-24'
+    departure: '13:26'
+    arrival: '18:15'
+    duration: 289
+  - date: '2026-04-25'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-04-26'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-04-27'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-04-28'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-04-29'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-04-30'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-04-30'
+    departure: '13:26'
+    arrival: '18:10'
+    duration: 284
+  - date: '2026-05-01'
+    departure: '06:07'
+    arrival: '10:15'
+    duration: 248
+  - date: '2026-05-02'
+    departure: '06:07'
+    arrival: '10:15'
+    duration: 248
+  - date: '2026-05-03'
+    departure: '06:07'
+    arrival: '10:15'
+    duration: 248
+  - date: '2026-05-04'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-05-05'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-05-06'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-05-07'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-05-07'
+    departure: '13:26'
+    arrival: '18:10'
+    duration: 284
+- from: Nantes
+  to: Valence TGV
+  connections:
+  - date: '2026-04-12'
+    departure: '15:38'
+    arrival: '21:02'
+    duration: 324
+  - date: '2026-04-13'
+    departure: '04:50'
+    arrival: '10:15'
+    duration: 325
+  - date: '2026-04-14'
+    departure: '04:46'
+    arrival: '10:15'
+    duration: 329
+  - date: '2026-04-15'
+    departure: '04:46'
+    arrival: '10:15'
+    duration: 329
+  - date: '2026-04-16'
+    departure: '04:46'
+    arrival: '10:15'
+    duration: 329
+  - date: '2026-04-17'
+    departure: '04:46'
+    arrival: '10:15'
+    duration: 329
+  - date: '2026-04-17'
+    departure: '12:44'
+    arrival: '18:15'
+    duration: 331
+  - date: '2026-04-18'
+    departure: '04:50'
+    arrival: '10:15'
+    duration: 325
+  - date: '2026-04-19'
+    departure: '04:50'
+    arrival: '10:15'
+    duration: 325
+  - date: '2026-04-20'
+    departure: '04:50'
+    arrival: '10:15'
+    duration: 325
+  - date: '2026-04-21'
+    departure: '04:46'
+    arrival: '10:15'
+    duration: 329
+  - date: '2026-04-22'
+    departure: '04:46'
+    arrival: '10:15'
+    duration: 329
+  - date: '2026-04-23'
+    departure: '04:46'
+    arrival: '10:15'
+    duration: 329
+  - date: '2026-04-24'
+    departure: '04:46'
+    arrival: '10:15'
+    duration: 329
+  - date: '2026-04-24'
+    departure: '12:44'
+    arrival: '18:15'
+    duration: 331
+  - date: '2026-04-25'
+    departure: '04:50'
+    arrival: '10:15'
+    duration: 325
+  - date: '2026-04-26'
+    departure: '04:50'
+    arrival: '10:15'
+    duration: 325
+  - date: '2026-04-27'
+    departure: '04:50'
+    arrival: '10:15'
+    duration: 325
+  - date: '2026-04-28'
+    departure: '04:46'
+    arrival: '10:15'
+    duration: 329
+  - date: '2026-04-29'
+    departure: '04:46'
+    arrival: '10:15'
+    duration: 329
+  - date: '2026-04-30'
+    departure: '04:46'
+    arrival: '10:15'
+    duration: 329
+  - date: '2026-04-30'
+    departure: '12:44'
+    arrival: '18:10'
+    duration: 326
+  - date: '2026-05-01'
+    departure: '05:28'
+    arrival: '10:15'
+    duration: 287
+  - date: '2026-05-02'
+    departure: '05:28'
+    arrival: '10:15'
+    duration: 287
+  - date: '2026-05-03'
+    departure: '05:28'
+    arrival: '10:15'
+    duration: 287
+  - date: '2026-05-04'
+    departure: '04:50'
+    arrival: '10:15'
+    duration: 325
+  - date: '2026-05-05'
+    departure: '04:46'
+    arrival: '10:15'
+    duration: 329
+  - date: '2026-05-06'
+    departure: '04:46'
+    arrival: '10:15'
+    duration: 329
+  - date: '2026-05-07'
+    departure: '04:46'
+    arrival: '10:15'
+    duration: 329
+  - date: '2026-05-07'
+    departure: '12:44'
+    arrival: '18:10'
+    duration: 326

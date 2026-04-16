@@ -8,10 +8,12 @@ require 'net/http'
 require 'json'
 require 'date'
 require 'uri'
+require 'yaml'
 require 'dotenv/load'
 
-TOKEN = ENV.fetch('NAVITIA_TOKEN') { abort 'Définir la variable NAVITIA_TOKEN.' }
-BASE  = 'https://api.sncf.com/v1/coverage/sncf'
+TOKEN        = ENV.fetch('NAVITIA_TOKEN') { abort 'Définir la variable NAVITIA_TOKEN.' }
+BASE         = 'https://api.sncf.com/v1/coverage/sncf'
+HISTORY_FILE = 'history.yaml'
 
 JOURS = %w[dimanche lundi mardi mercredi jeudi vendredi samedi]
 MOIS  = %w[janvier février mars avril mai juin juillet août septembre octobre novembre décembre]
@@ -105,18 +107,51 @@ def fetch_direct_journeys(from_id, to_id, start_dt, end_dt)
   results.sort_by { |r| r[:dep] }
 end
 
-# ── Formatage ────────────────────────────────────────────────────────────────
+# ── History ───────────────────────────────────────────────────────────────────
 
-def fmt_date(dt)
-  "#{JOURS[dt.wday].capitalize[0, 3]}. #{dt.day} #{MOIS[dt.month - 1][0, 3]}."
+def load_history
+  return { 'routes' => [] } unless File.exist?(HISTORY_FILE)
+  YAML.safe_load(File.read(HISTORY_FILE)) || { 'routes' => [] }
+end
+
+def find_or_create_route(history, from_label, to_label)
+  route = history['routes'].find { |r| r['from'] == from_label && r['to'] == to_label }
+  unless route
+    route = { 'from' => from_label, 'to' => to_label, 'connections' => [] }
+    history['routes'] << route
+  end
+  route
+end
+
+def merge_connections(route, new_trips)
+  existing = route['connections']
+  seen = existing.map { |c| "#{c['date']}T#{c['departure']}" }.to_h { |k| [k, true] }
+  new_trips.each do |trip|
+    key = trip[:dep].strftime('%Y-%m-%dT%H:%M')
+    next if seen[key]
+    seen[key] = true
+    existing << {
+      'date'      => trip[:dep].strftime('%Y-%m-%d'),
+      'departure' => trip[:dep].strftime('%H:%M'),
+      'arrival'   => trip[:arr].strftime('%H:%M'),
+      'duration'  => trip[:duration]
+    }
+  end
+  route['connections'] = existing.sort_by { |c| "#{c['date']}T#{c['departure']}" }
+end
+
+# ── Formatting ────────────────────────────────────────────────────────────────
+
+def fmt_date(date)
+  "#{JOURS[date.wday].capitalize[0, 3]}. #{date.day} #{MOIS[date.month - 1][0, 3]}."
 end
 
 def fmt_duration(min)
   "#{min / 60}h#{(min % 60).to_s.rjust(2, '0')}"
 end
 
-def dep_class(dt)
-  case dt.hour
+def dep_class(hour)
+  case hour
   when  0..6  then 't-nuit'
   when  7..11 then 't-matin'
   when 12..16 then 't-apm'
@@ -124,39 +159,42 @@ def dep_class(dt)
   end
 end
 
-def render_rows(trips)
-  return '<tr><td colspan="4" class="empty">Aucun train direct trouvé.</td></tr>' if trips.empty?
+def render_rows(connections)
+  return '<tr><td colspan="4" class="empty">Aucun train direct trouvé.</td></tr>' if connections.empty?
 
-  trips.map do |r|
-    cls = []
-    cls << 'week-start' if r[:dep].wday == 1  # lundi → séparateur de semaine
-    row_attr = cls.empty? ? '' : " class=\"#{cls.join(' ')}\""
-    "<tr#{row_attr}>" \
-      "<td>#{fmt_date(r[:dep])}</td>" \
-      "<td class=\"time #{dep_class(r[:dep])}\">#{r[:dep].strftime('%H:%M')}</td>" \
-      "<td class=\"time\">#{r[:arr].strftime('%H:%M')}</td>" \
-      "<td class=\"dur\">#{fmt_duration(r[:duration])}</td>" \
+  connections.map do |c|
+    date = Date.parse(c['date'])
+    hour = c['departure'].split(':').first.to_i
+    cls  = date.wday == 1 ? ' class="week-start"' : ''
+    "<tr#{cls}>" \
+      "<td>#{fmt_date(date)}</td>" \
+      "<td class=\"time #{dep_class(hour)}\">#{c['departure']}</td>" \
+      "<td class=\"time\">#{c['arrival']}</td>" \
+      "<td class=\"dur\">#{fmt_duration(c['duration'])}</td>" \
     "</tr>"
   end.join("\n        ")
 end
 
-def render_section(from_label, to_label, trips)
-  count = trips.size
-  rows  = render_rows(trips)
+def render_section(from_label, to_label, connections)
+  count = connections.size
+  rows  = render_rows(connections)
+  count_label = count == 0 ? 'Aucun train direct' : "#{count} train#{count > 1 ? 's' : ''} direct#{count > 1 ? 's' : ''}"
   <<~HTML
     <section class="card">
       <div class="card-header">
         <div class="card-title">#{from_label} <span class="arrow">→</span> #{to_label}</div>
-        <div class="count">#{count == 0 ? 'Aucun train direct' : "#{count} train#{count > 1 ? 's' : ''} direct#{count > 1 ? 's' : ''}"}</div>
+        <div class="count">#{count_label}</div>
       </div>
-      <table>
-        <thead>
-          <tr><th>Jour</th><th>Départ</th><th>Arrivée</th><th>Durée</th></tr>
-        </thead>
-        <tbody>
-        #{rows}
-        </tbody>
-      </table>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>Jour</th><th>Départ</th><th>Arrivée</th><th>Durée</th></tr>
+          </thead>
+          <tbody>
+          #{rows}
+          </tbody>
+        </table>
+      </div>
     </section>
   HTML
 end
@@ -173,17 +211,25 @@ end_dt   = DateTime.now + 30
 warn "Récupération des trains #{start_dt.strftime('%d/%m/%Y')} → #{end_dt.strftime('%d/%m/%Y')}…"
 
 routes = [
-  ['Valence TGV', 'Angers Saint-Laud', valence_id, angers_id],
-  ['Valence TGV', 'Nantes',            valence_id, nantes_id],
-  ['Angers Saint-Laud', 'Valence TGV', angers_id,  valence_id],
-  ['Nantes',            'Valence TGV', nantes_id,  valence_id],
+  ['Valence TGV',       'Angers Saint-Laud', valence_id, angers_id],
+  ['Valence TGV',       'Nantes',            valence_id, nantes_id],
+  ['Angers Saint-Laud', 'Valence TGV',       angers_id,  valence_id],
+  ['Nantes',            'Valence TGV',       nantes_id,  valence_id],
 ]
+
+history = load_history
 
 sections = routes.map do |from_label, to_label, from_id, to_id|
   trips = fetch_direct_journeys(from_id, to_id, start_dt, end_dt)
   warn "  #{from_label} → #{to_label} : #{trips.size} train(s)"
-  render_section(from_label, to_label, trips)
+  route = find_or_create_route(history, from_label, to_label)
+  merge_connections(route, trips)
+  render_section(from_label, to_label, route['connections'])
 end
+
+history['generated_at'] = Date.today.to_s
+File.write(HISTORY_FILE, history.to_yaml)
+warn "#{HISTORY_FILE} mis à jour."
 
 today        = Date.today
 generated_at = "#{JOURS[today.wday]} #{today.day} #{MOIS[today.month - 1]} #{today.year}"
@@ -247,6 +293,11 @@ html = <<~HTML
       .arrow { color: #aaa; font-weight: 400; }
       .count { font-size: 0.72rem; color: #9ca3af; margin-top: 0.2rem; }
 
+      .table-scroll {
+        max-height: 33rem;
+        overflow-y: auto;
+      }
+
       table { width: 100%; border-collapse: collapse; }
 
       th {
@@ -259,6 +310,9 @@ html = <<~HTML
         text-align: left;
         background: #fafafa;
         border-bottom: 1px solid #e5e7eb;
+        position: sticky;
+        top: 0;
+        z-index: 1;
       }
 
       td {
@@ -290,8 +344,13 @@ html = <<~HTML
       <p class="updated">Mis à jour le #{generated_at}</p>
     </header>
     <main>
-  #{sections.map { |s| s.gsub(/^/, '    ') }.join("\n")}
+#{sections.map { |s| s.gsub(/^/, '    ') }.join("\n")}
     </main>
+    <script>
+      document.querySelectorAll('.table-scroll').forEach(function(el) {
+        el.scrollTop = el.scrollHeight;
+      });
+    </script>
   </body>
   </html>
 HTML
