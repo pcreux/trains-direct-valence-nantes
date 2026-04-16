@@ -19,15 +19,18 @@ jobs:
           ruby-version: '3.3'
           bundler-cache: true
 
-      - name: Generate index.html
-        run: bundle exec ruby generate.rb
+      - name: Fetch connections
+        run: bundle exec ruby fetch.rb
         env:
           NAVITIA_TOKEN: ${{ secrets.NAVITIA_TOKEN }}
+
+      - name: Render index.html
+        run: bundle exec ruby render.rb
 
       - name: Commit and push
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add index.html
+          git add history.yaml index.html
           git diff --cached --quiet || git commit -m "Update schedule $(date +'%Y-%m-%d')"
           git push
