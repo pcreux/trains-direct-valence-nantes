@@ -1,5 +1,5 @@
 ---
-generated_at: '2026-08-12'
+generated_at: '2026-08-13'
 routes:
 - from: Valence TGV
   to: Angers Saint-Laud
@@ -608,6 +608,10 @@ routes:
     departure: '17:44'
     arrival: '22:30'
     duration: 286
+  - date: '2026-09-08'
+    departure: '17:44'
+    arrival: '22:30'
+    duration: 286
 - from: Valence TGV
   to: Nantes
   connections:
@@ -1212,6 +1216,10 @@ routes:
     arrival: '23:11'
     duration: 327
   - date: '2026-09-07'
+    departure: '17:44'
+    arrival: '23:11'
+    duration: 327
+  - date: '2026-09-08'
     departure: '17:44'
     arrival: '23:11'
     duration: 327
@@ -1906,6 +1914,10 @@ routes:
     departure: '05:29'
     arrival: '10:15'
     duration: 286
+  - date: '2026-09-08'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
 - from: Nantes
   to: Valence TGV
   connections:
@@ -2594,6 +2606,10 @@ routes:
     arrival: '10:15'
     duration: 325
   - date: '2026-09-07'
+    departure: '04:50'
+    arrival: '10:15'
+    duration: 325
+  - date: '2026-09-08'
     departure: '04:50'
     arrival: '10:15'
     duration: 325
