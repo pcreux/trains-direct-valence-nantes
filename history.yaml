@@ -1,5 +1,5 @@
 ---
-generated_at: '2026-09-03'
+generated_at: '2026-09-04'
 routes:
 - from: Valence TGV
   to: Angers Saint-Laud
@@ -712,6 +712,22 @@ routes:
     departure: '17:44'
     arrival: '22:30'
     duration: 286
+  - date: '2026-09-28'
+    departure: '17:45'
+    arrival: '22:30'
+    duration: 285
+  - date: '2026-09-29'
+    departure: '17:45'
+    arrival: '22:30'
+    duration: 285
+  - date: '2026-09-30'
+    departure: '17:45'
+    arrival: '22:30'
+    duration: 285
+  - date: '2026-10-01'
+    departure: '17:45'
+    arrival: '22:30'
+    duration: 285
 - from: Valence TGV
   to: Nantes
   connections:
@@ -1423,6 +1439,22 @@ routes:
     departure: '17:44'
     arrival: '23:11'
     duration: 327
+  - date: '2026-09-28'
+    departure: '17:45'
+    arrival: '23:11'
+    duration: 326
+  - date: '2026-09-29'
+    departure: '17:45'
+    arrival: '23:11'
+    duration: 326
+  - date: '2026-09-30'
+    departure: '17:45'
+    arrival: '23:11'
+    duration: 326
+  - date: '2026-10-01'
+    departure: '17:45'
+    arrival: '23:11'
+    duration: 326
 - from: Angers Saint-Laud
   to: Valence TGV
   connections:
@@ -2218,6 +2250,22 @@ routes:
     departure: '16:20'
     arrival: '21:15'
     duration: 295
+  - date: '2026-09-28'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-09-29'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-09-30'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-10-01'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
 - from: Nantes
   to: Valence TGV
   connections:
@@ -3013,3 +3061,19 @@ routes:
     departure: '15:40'
     arrival: '21:15'
     duration: 335
+  - date: '2026-09-28'
+    departure: '04:50'
+    arrival: '10:15'
+    duration: 325
+  - date: '2026-09-29'
+    departure: '04:50'
+    arrival: '10:15'
+    duration: 325
+  - date: '2026-09-30'
+    departure: '04:50'
+    arrival: '10:15'
+    duration: 325
+  - date: '2026-10-01'
+    departure: '04:50'
+    arrival: '10:15'
+    duration: 325
