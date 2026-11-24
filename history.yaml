@@ -1,5 +1,5 @@
 ---
-generated_at: '2026-11-23'
+generated_at: '2026-11-24'
 routes:
 - from: Valence TGV
   to: Angers Saint-Laud
@@ -1064,6 +1064,18 @@ routes:
     departure: '17:43'
     arrival: '22:30'
     duration: 287
+  - date: '2026-12-21'
+    departure: '17:43'
+    arrival: '22:30'
+    duration: 287
+  - date: '2026-12-22'
+    departure: '17:43'
+    arrival: '22:30'
+    duration: 287
+  - date: '2026-12-23'
+    departure: '17:43'
+    arrival: '22:30'
+    duration: 287
 - from: Valence TGV
   to: Nantes
   connections:
@@ -2124,6 +2136,18 @@ routes:
     arrival: '23:11'
     duration: 328
   - date: '2026-12-20'
+    departure: '17:43'
+    arrival: '23:11'
+    duration: 328
+  - date: '2026-12-21'
+    departure: '17:43'
+    arrival: '23:11'
+    duration: 328
+  - date: '2026-12-22'
+    departure: '17:43'
+    arrival: '23:11'
+    duration: 328
+  - date: '2026-12-23'
     departure: '17:43'
     arrival: '23:11'
     duration: 328
@@ -3318,6 +3342,26 @@ routes:
     departure: '07:52'
     arrival: '12:33'
     duration: 281
+  - date: '2026-12-21'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-12-22'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-12-23'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-12-24'
+    departure: '05:29'
+    arrival: '10:15'
+    duration: 286
+  - date: '2026-12-24'
+    departure: '13:26'
+    arrival: '18:11'
+    duration: 285
 - from: Nantes
   to: Valence TGV
   connections:
@@ -4509,3 +4553,23 @@ routes:
     departure: '07:12'
     arrival: '12:33'
     duration: 321
+  - date: '2026-12-21'
+    departure: '04:50'
+    arrival: '10:15'
+    duration: 325
+  - date: '2026-12-22'
+    departure: '04:50'
+    arrival: '10:15'
+    duration: 325
+  - date: '2026-12-23'
+    departure: '04:50'
+    arrival: '10:15'
+    duration: 325
+  - date: '2026-12-24'
+    departure: '04:50'
+    arrival: '10:15'
+    duration: 325
+  - date: '2026-12-24'
+    departure: '12:44'
+    arrival: '18:11'
+    duration: 327
